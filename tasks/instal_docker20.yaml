@@ -4,19 +4,10 @@
     dest: /tmp
     remote_src: yes
     
-- name: Start the Docker daemon
-  ansible.builtin.command: "ls /tmp"
-
-
-- name: Start the Docker daemon
-  ansible.builtin.command: "ls /tmp/docker-20.10.21/"
-
-- name: Start the Docker daemon
-  ansible.builtin.command: "ls /tmp/docker-20.10.21/docker/"
   
 - name: copy binaries
   ansible.builtin.copy:
-    src: /tmp/docker-20.10.21/docker/*
+    src: /tmp/docker/*
     dest: /usr/bin/
     mode: 'u+x,g+x'
 
