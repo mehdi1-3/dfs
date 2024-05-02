@@ -1,0 +1,11 @@
+- name: clean VMs
+  hosts: dfs
+  become: yes
+  become_method: sudo
+  become_user: root
+  gather_facts: yes
+  any_errors_fatal: true
+
+
+  tasks:
+    - import_tasks: tasks/install_packages.yaml

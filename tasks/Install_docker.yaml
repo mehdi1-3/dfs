@@ -1,0 +1,42 @@
+- name: Add Docker GPG apt Key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+
+- name: "Update cache & Full system update"
+  apt:
+    update_cache: true
+    upgrade: dist
+    cache_valid_time: 3600
+    force_apt_get: true
+
+- name: Install Docker
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - docker-ce
+      - docker-ce-cli 
+      - containerd.io
+
+- name: Install Docker Module for Python
+  pip:
+    name: docker
+
+- name: Add user to docker group
+  user:
+    name: "{{user}}"
+    group: docker
+
+- name: Install docker-compose
+  get_url: 
+    url : https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: 'u+x,g+x'

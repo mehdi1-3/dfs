@@ -1,0 +1,6 @@
+ansible_host: 10.101.1.142
+ansible_user: actia-admin
+ansible_connection: ssh
+new_hostname: dfs-arm-sim
+ansible_ssh_pass: 123456789
+
