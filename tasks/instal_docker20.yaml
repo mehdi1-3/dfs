@@ -6,7 +6,8 @@
     
   
 - name: copy binaries
-  ansible.builtin.command: cp /tmp/docker/* /usr/bin/
+  ansible.builtin.command: cp /tmp/docker/containerd /usr/bin/
+  mode: 0775
 
 - name: Start the Docker daemon
   ansible.builtin.command: dockerd &
