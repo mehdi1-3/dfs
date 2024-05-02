@@ -2,11 +2,7 @@
   unarchive:
     src: https://download.docker.com/linux/static/stable/x86_64/docker-20.10.21.tgz
     dest: /tmp
-    owner: actia-admin
-    group: actia-admin
     remote_src: yes
-    force: no
-    creates: /tmp/docker-20.10.21
 
 - name: copy binaries
   ansible.builtin.copy:
