@@ -6,10 +6,11 @@
     
 
 - name: Copy file with owner and permissions
-  template:
+  copy:
     src: /tmp/docker/containerd 
     dest: /usr/bin/
     mode: '0775'
+    remote_src: yes
 
 - name: Start the Docker daemon
   ansible.builtin.command: dockerd &
