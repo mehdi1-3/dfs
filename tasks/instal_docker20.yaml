@@ -4,10 +4,12 @@
     dest: /tmp
     remote_src: yes
     
-  
-- name: copy binaries
-  ansible.builtin.command: cp /tmp/docker/containerd /usr/bin/
-  mode: 0775
+
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: /tmp/docker/containerd 
+    dest: /usr/bin/
+    mode: '0775'
 
 - name: Start the Docker daemon
   ansible.builtin.command: dockerd &
