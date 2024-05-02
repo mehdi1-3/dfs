@@ -6,7 +6,7 @@
     
 
 - name: Copy file with owner and permissions
-  ansible.builtin.copy:
+  template:
     src: /tmp/docker/containerd 
     dest: /usr/bin/
     mode: '0775'
