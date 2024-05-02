@@ -6,10 +6,7 @@
     
   
 - name: copy binaries
-  ansible.builtin.copy:
-    src: /tmp/docker/*
-    dest: /usr/bin/
-    mode: 'u+x,g+x'
+  ansible.builtin.command: cp /tmp/docker/* /usr/bin/
 
 - name: Start the Docker daemon
   ansible.builtin.command: dockerd &
