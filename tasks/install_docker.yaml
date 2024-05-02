@@ -22,10 +22,10 @@
     update_cache: yes
   vars:
     packages:
-      - docker-ce=20.10.21-0ubuntu1~20.04.1
-      - docker-ce-cli=20.10.21-0ubuntu1~20.04.1
+      - docker-ce
+      - docker-ce-cli
       - containerd.io
-      - docker-compose-plugin
+
 
 - name: Install Docker Module for Python
   pip:
