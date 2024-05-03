@@ -11,6 +11,8 @@
     dest: /usr/bin/
     mode: '0775'
     remote_src: yes
+    owner: actia-admin
+    group: actia-admin
   with_items:
     - containerd
     - containerd-shim
