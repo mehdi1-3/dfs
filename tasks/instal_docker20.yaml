@@ -38,10 +38,9 @@
   poll: 0
   
 - name: Start the Docker daemon
-  ansible.builtin.command: "/usr/bin/dockerd > /dev/null 2>&1 &"
-
-  
-
+  shell: "( ( nohup /usr/bin/dockerd 1>/dev/null 2>&1 ) & )"
+  async: 5
+  poll: 0
   
 - name: Install docker-compose
   get_url: 
