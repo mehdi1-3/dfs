@@ -31,7 +31,7 @@
 - name: Add user to docker group
   user:
     name: "{{user}}"
-    group: docker
+    group: root
 
 - name: Install docker-compose
   get_url: 
