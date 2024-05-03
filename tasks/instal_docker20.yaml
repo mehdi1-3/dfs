@@ -7,10 +7,20 @@
 
 - name: Copy file with owner and permissions
   copy:
-    src: /tmp/docker/containerd 
+    src: /tmp/docker/{{item}}
     dest: /usr/bin/
     mode: '0775'
     remote_src: yes
+  with_items:
+    - containerd
+    - containerd-shim
+    - containerd-shim-runc-v2
+    - ctr
+    - docker
+    - dockerd
+    - docker-init
+    - docker-proxy
+    - runc
 
 - name: Start the Docker daemon
   ansible.builtin.command: dockerd &
