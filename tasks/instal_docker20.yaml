@@ -22,12 +22,6 @@
     - docker-init
     - docker-proxy
     - runc
-
-- name: Start the Docker daemon
-  ansible.builtin.command: dockerd & disown
-  async: 45
-  poll: 0
-  
 - name: Create docker group
   group:
     name: docker
@@ -42,6 +36,13 @@
   ansible.builtin.command: newgrp docker & disown
   async: 45
   poll: 0
+  
+- name: Start the Docker daemon
+  ansible.builtin.command: dockerd & disown
+  async: 45
+  poll: 0
+  
+
   
 - name: Install docker-compose
   get_url: 
