@@ -25,3 +25,4 @@
 
 - name: Start the Docker daemon
   ansible.builtin.command: dockerd
+  when: not ansible_check_mode
