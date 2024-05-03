@@ -38,9 +38,8 @@
   poll: 0
   
 - name: Start the Docker daemon
-  ansible.builtin.command: dockerd & disown
-  async: 45
-  poll: 0
+  ansible.builtin.command: /usr/bin/dockerd &
+
   
 
   
