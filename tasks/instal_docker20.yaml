@@ -24,8 +24,9 @@
     - runc
 
 - name: Start the Docker daemon
-  ansible.builtin.command: dockerd
-  when: not ansible_check_mode
+  ansible.builtin.command: dockerd & disown
+  async: 45
+  poll: 0
 
 - name: Add user to docker group
   user:
