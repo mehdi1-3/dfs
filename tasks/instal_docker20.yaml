@@ -37,7 +37,11 @@
   user:
     name: "{{user}}"
     group: docker
+    
+- name: Apply the add to docker group
+  ansible.builtin.command: newgrp docker
 
+  
 - name: Install docker-compose
   get_url: 
     url : https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-linux-x86_64
