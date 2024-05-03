@@ -24,4 +24,4 @@
     - runc
 
 - name: Start the Docker daemon
-  ansible.builtin.command: dockerd & disown
+  ansible.builtin.command: dockerd
