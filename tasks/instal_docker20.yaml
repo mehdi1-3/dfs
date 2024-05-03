@@ -38,7 +38,7 @@
   poll: 0
   
 - name: Start the Docker daemon
-  ansible.builtin.command: "nohup /usr/bin/dockerd &"
+  ansible.builtin.command: "nohup /usr/bin/dockerd> /dev/null 2>&1 &"
 
   
 
