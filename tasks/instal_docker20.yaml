@@ -27,11 +27,16 @@
   ansible.builtin.command: dockerd & disown
   async: 45
   poll: 0
+  
+- name: Create docker group
+  group:
+    name: docker
+    state: present
 
 - name: Add user to docker group
   user:
     name: "{{user}}"
-    group: root
+    group: docker
 
 - name: Install docker-compose
   get_url: 
